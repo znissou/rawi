@@ -1,0 +1,11 @@
+A square app icon for "rawi", a code-editor extension that reads an AI coding assistant's replies aloud.
+
+Symbol: a bold, thick command-line prompt chevron (>) with rounded caps and corners on the left, followed on its right by three concentric sound-wave arcs that grow in size, as if the prompt itself is speaking. The chevron and the arcs have the same stroke thickness and rounded caps. The whole symbol is horizontally centered.
+
+Colors: the symbol is a luminous gradient from aqua (#2EE6D6) on the left to soft violet (#9B7BFF) on the right, with a faint glow around it. The background is a very dark blue-black (#0B1020) with a subtle radial lift toward the center (#161D38).
+
+Background: it fills the entire square edge to edge with square corners: no rounded tile, no border, no frame, no outer drop shadow (the corners are rounded later). Keep the symbol inside the central 70% of the canvas, optically centered, with even margins.
+
+Quality: a premium, modern app icon of the kind featured on Dribbble: crisp vector shapes, bold and simple enough to stay recognizable at 16 by 16 pixels, with only subtle depth (soft gradients, a gentle highlight), no fine detail, no texture or noise.
+
+Never include: text, letters, numbers, logos, Arabic script, microphones, robots, faces.

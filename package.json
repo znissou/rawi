@@ -1,0 +1,589 @@
+{
+  "name": "rawi",
+  "displayName": "Rawi — Read Aloud for Claude Code",
+  "description": "Hear Claude Code's replies read aloud, automatically or when you ask, with OpenRouter voices or Kokoro on your computer.",
+  "version": "0.3.3",
+  "publisher": "rawi",
+  "license": "MIT",
+  "icon": "media/icon.png",
+  "engines": {
+    "vscode": "^1.90.0"
+  },
+  "categories": [
+    "Other",
+    "AI"
+  ],
+  "keywords": [
+    "claude code",
+    "read aloud",
+    "text to speech",
+    "tts",
+    "openrouter",
+    "voice",
+    "accessibility",
+    "kokoro",
+    "offline"
+  ],
+  "main": "./dist/extension.js",
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "contributes": {
+    "commands": [
+      {
+        "command": "rawi.readLastReply",
+        "title": "Read Last Reply",
+        "category": "Rawi",
+        "icon": "$(play)"
+      },
+      {
+        "command": "rawi.pauseResume",
+        "title": "Pause or Resume",
+        "category": "Rawi",
+        "icon": "$(debug-pause)"
+      },
+      {
+        "command": "rawi.stop",
+        "title": "Stop",
+        "category": "Rawi",
+        "icon": "$(stop-circle)"
+      },
+      {
+        "command": "rawi.skipForward",
+        "title": "Skip Forward",
+        "category": "Rawi",
+        "icon": "$(debug-step-over)"
+      },
+      {
+        "command": "rawi.skipBack",
+        "title": "Skip Back",
+        "category": "Rawi",
+        "icon": "$(debug-step-back)"
+      },
+      {
+        "command": "rawi.readSelection",
+        "title": "Read Selection Aloud",
+        "category": "Rawi"
+      },
+      {
+        "command": "rawi.readClipboard",
+        "title": "Read Clipboard",
+        "category": "Rawi"
+      },
+      {
+        "command": "rawi.setAutoRead",
+        "title": "Auto-Read: Always, When Away or Off…",
+        "category": "Rawi"
+      },
+      {
+        "command": "rawi.mute",
+        "title": "Mute for…",
+        "category": "Rawi"
+      },
+      {
+        "command": "rawi.chooseModel",
+        "title": "Choose Model…",
+        "category": "Rawi"
+      },
+      {
+        "command": "rawi.chooseVoice",
+        "title": "Choose Voice…",
+        "category": "Rawi"
+      },
+      {
+        "command": "rawi.setSpeed",
+        "title": "Set Speed…",
+        "category": "Rawi"
+      },
+      {
+        "command": "rawi.setApiKey",
+        "title": "Set OpenRouter API Key",
+        "category": "Rawi"
+      },
+      {
+        "command": "rawi.removeApiKey",
+        "title": "Remove OpenRouter API Key",
+        "category": "Rawi"
+      },
+      {
+        "command": "rawi.showReplies",
+        "title": "Show Replies",
+        "category": "Rawi"
+      },
+      {
+        "command": "rawi.showLog",
+        "title": "Show Log",
+        "category": "Rawi"
+      },
+      {
+        "command": "rawi.playReply",
+        "title": "Read Aloud",
+        "category": "Rawi",
+        "icon": "$(play)"
+      },
+      {
+        "command": "rawi.copyReply",
+        "title": "Copy Text",
+        "category": "Rawi"
+      },
+      {
+        "command": "rawi.showSpeakable",
+        "title": "Show What Will Be Read",
+        "category": "Rawi"
+      },
+      {
+        "command": "rawi.setUpKokoro",
+        "title": "Set Up Local Voice (Kokoro)",
+        "category": "Rawi"
+      }
+    ],
+    "keybindings": [
+      {
+        "command": "rawi.readLastReply",
+        "key": "ctrl+alt+p",
+        "mac": "ctrl+cmd+p"
+      },
+      {
+        "command": "rawi.pauseResume",
+        "key": "ctrl+alt+,",
+        "mac": "ctrl+cmd+,"
+      },
+      {
+        "command": "rawi.stop",
+        "key": "ctrl+alt+.",
+        "mac": "ctrl+cmd+."
+      },
+      {
+        "command": "rawi.skipForward",
+        "key": "ctrl+alt+/",
+        "mac": "ctrl+cmd+/"
+      },
+      {
+        "command": "rawi.skipBack",
+        "key": "ctrl+alt+b",
+        "mac": "ctrl+cmd+b"
+      }
+    ],
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "rawi",
+          "title": "Rawi",
+          "icon": "media/rawi.svg"
+        }
+      ]
+    },
+    "views": {
+      "rawi": [
+        {
+          "id": "rawi.replies",
+          "name": "Replies",
+          "icon": "media/rawi.svg"
+        }
+      ]
+    },
+    "viewsWelcome": [
+      {
+        "view": "rawi.replies",
+        "contents": "Claude Code's replies in this window's folders appear here as Claude answers. Click one to hear it.\n[Set OpenRouter API Key](command:rawi.setApiKey)\n[Choose Voice](command:rawi.chooseVoice)"
+      }
+    ],
+    "menus": {
+      "view/title": [
+        {
+          "command": "rawi.readLastReply",
+          "when": "view == rawi.replies",
+          "group": "navigation@1"
+        },
+        {
+          "command": "rawi.stop",
+          "when": "view == rawi.replies",
+          "group": "navigation@2"
+        },
+        {
+          "command": "rawi.chooseVoice",
+          "when": "view == rawi.replies",
+          "group": "settings@1"
+        },
+        {
+          "command": "rawi.chooseModel",
+          "when": "view == rawi.replies",
+          "group": "settings@2"
+        },
+        {
+          "command": "rawi.setSpeed",
+          "when": "view == rawi.replies",
+          "group": "settings@3"
+        },
+        {
+          "command": "rawi.setAutoRead",
+          "when": "view == rawi.replies",
+          "group": "settings@4"
+        }
+      ],
+      "view/item/context": [
+        {
+          "command": "rawi.playReply",
+          "when": "view == rawi.replies && viewItem == reply",
+          "group": "inline"
+        },
+        {
+          "command": "rawi.playReply",
+          "when": "view == rawi.replies && viewItem == reply",
+          "group": "1_play@1"
+        },
+        {
+          "command": "rawi.copyReply",
+          "when": "view == rawi.replies && viewItem == reply",
+          "group": "2_text@1"
+        },
+        {
+          "command": "rawi.showSpeakable",
+          "when": "view == rawi.replies && viewItem == reply",
+          "group": "2_text@2"
+        }
+      ],
+      "editor/context": [
+        {
+          "command": "rawi.readSelection",
+          "when": "editorHasSelection",
+          "group": "rawi@1"
+        }
+      ],
+      "commandPalette": [
+        {
+          "command": "rawi.playReply",
+          "when": "false"
+        },
+        {
+          "command": "rawi.copyReply",
+          "when": "false"
+        },
+        {
+          "command": "rawi.showSpeakable",
+          "when": "false"
+        },
+        {
+          "command": "rawi.readSelection",
+          "when": "editorHasSelection"
+        }
+      ]
+    },
+    "configuration": [
+      {
+        "title": "Reading",
+        "properties": {
+          "rawi.autoRead": {
+            "type": "string",
+            "enum": [
+              "always",
+              "whenAway",
+              "off"
+            ],
+            "enumDescriptions": [
+              "Read every reply as soon as Claude finishes a turn.",
+              "Read replies only while the VS Code window isn't focused.",
+              "Never read automatically: use the status bar, the Replies list or the keyboard."
+            ],
+            "default": "always",
+            "markdownDescription": "When to read Claude Code's replies automatically.",
+            "order": 1
+          },
+          "rawi.whenBusy": {
+            "type": "string",
+            "enum": [
+              "queue",
+              "interrupt"
+            ],
+            "enumDescriptions": [
+              "Finish the current reply, then read the new one.",
+              "Stop the current reply and read the new one."
+            ],
+            "default": "queue",
+            "description": "What to do when a new reply arrives while another is being read.",
+            "order": 2
+          },
+          "rawi.stopOnPrompt": {
+            "type": "boolean",
+            "default": true,
+            "description": "Stop reading when you send Claude a new prompt.",
+            "order": 3
+          },
+          "rawi.scope": {
+            "type": "string",
+            "enum": [
+              "workspace",
+              "all"
+            ],
+            "enumDescriptions": [
+              "Only sessions working in this window's folders.",
+              "Every Claude Code session on this computer."
+            ],
+            "default": "workspace",
+            "description": "Which Claude Code sessions this window reads.",
+            "order": 4
+          },
+          "rawi.read.which": {
+            "type": "string",
+            "enum": [
+              "final",
+              "all"
+            ],
+            "enumDescriptions": [
+              "Only the final answer: the text after Claude's last tool call.",
+              "Also the short notes Claude writes between tool calls."
+            ],
+            "default": "final",
+            "description": "Which part of a turn to read.",
+            "order": 10
+          },
+          "rawi.read.longReplies": {
+            "type": "string",
+            "enum": [
+              "full",
+              "firstParagraph"
+            ],
+            "enumDescriptions": [
+              "Read long replies in full.",
+              "Read only the first paragraph of a long reply, plus its closing question."
+            ],
+            "default": "full",
+            "description": "How to read replies longer than `rawi.read.longReplyLength`. Use firstParagraph for short audio.",
+            "order": 11
+          },
+          "rawi.read.longReplyLength": {
+            "type": "number",
+            "default": 1500,
+            "minimum": 200,
+            "description": "Characters after which a reply counts as long.",
+            "order": 12
+          },
+          "rawi.read.codeBlocks": {
+            "type": "string",
+            "enum": [
+              "announce",
+              "skip",
+              "read"
+            ],
+            "enumDescriptions": [
+              "Say what the block is, for example \"a TypeScript snippet, 12 lines\".",
+              "Say nothing.",
+              "Read the code."
+            ],
+            "default": "announce",
+            "description": "How to read code blocks.",
+            "order": 13
+          },
+          "rawi.read.tables": {
+            "type": "string",
+            "enum": [
+              "announce",
+              "rows",
+              "skip"
+            ],
+            "enumDescriptions": [
+              "Say its size and column names.",
+              "Read it row by row.",
+              "Say nothing."
+            ],
+            "default": "announce",
+            "description": "How to read tables.",
+            "order": 14
+          },
+          "rawi.read.paths": {
+            "type": "string",
+            "enum": [
+              "fileName",
+              "full"
+            ],
+            "enumDescriptions": [
+              "Only the file name: src/audio/player.ts:42 is read as \"player.ts, line 42\".",
+              "The whole path."
+            ],
+            "default": "fileName",
+            "description": "How to read file paths.",
+            "order": 15
+          }
+        }
+      },
+      {
+        "title": "Voice",
+        "properties": {
+          "rawi.openrouter.model": {
+            "type": "string",
+            "default": "heygen/heygen-voice-1-turbo:free",
+            "markdownDescription": "OpenRouter speech model. Use **Rawi: Choose Model…** to pick from the live list.",
+            "order": 1
+          },
+          "rawi.openrouter.voice": {
+            "type": "string",
+            "default": "nadine",
+            "markdownDescription": "Voice of the model. Use **Rawi: Choose Voice…** to hear them.",
+            "order": 2
+          },
+          "rawi.openrouter.allowPaid": {
+            "type": "boolean",
+            "default": false,
+            "description": "Allow paid OpenRouter models. While off, rawi only uses free ones.",
+            "order": 3
+          },
+          "rawi.speed": {
+            "type": "number",
+            "default": 1,
+            "minimum": 0.5,
+            "maximum": 2,
+            "description": "Reading speed. The pitch stays the same.",
+            "order": 4
+          },
+          "rawi.volume": {
+            "type": "number",
+            "default": 100,
+            "minimum": 0,
+            "maximum": 100,
+            "description": "Volume, from 0 to 100.",
+            "order": 5
+          },
+          "rawi.fallback": {
+            "type": "string",
+            "enum": [
+              "systemVoice",
+              "kokoro",
+              "none"
+            ],
+            "enumDescriptions": [
+              "Windows' own voice reads instead (Windows only for now).",
+              "Kokoro on this computer reads instead, or Windows' voice if Kokoro can't.",
+              "No backup: if the voice fails, rawi tells you and stays quiet."
+            ],
+            "default": "systemVoice",
+            "description": "A backup voice for when the main voice fails (no internet, no credit) or is too slow. It reads the rest of that reply; the next reply tries the main voice again.",
+            "order": 6
+          },
+          "rawi.fallbackAfter": {
+            "type": "number",
+            "default": 3,
+            "minimum": 0,
+            "maximum": 30,
+            "markdownDescription": "Seconds to wait for the OpenRouter voice before the backup voice reads instead. `0` uses the backup only when the voice fails. Kokoro is always waited for: it falls back only when it fails.",
+            "order": 7
+          },
+          "rawi.engine": {
+            "type": "string",
+            "enum": [
+              "openrouter",
+              "kokoro"
+            ],
+            "enumDescriptions": [
+              "A voice from OpenRouter (needs the internet and an API key).",
+              "Kokoro on this computer: free, works offline. Run \"Rawi: Set Up Local Voice (Kokoro)\" once."
+            ],
+            "default": "openrouter",
+            "description": "The main voice.",
+            "order": 0
+          },
+          "rawi.kokoro.voice": {
+            "type": "string",
+            "enum": [
+              "af_heart",
+              "af_alloy",
+              "af_aoede",
+              "af_bella",
+              "af_jessica",
+              "af_kore",
+              "af_nicole",
+              "af_nova",
+              "af_river",
+              "af_sarah",
+              "af_sky",
+              "am_adam",
+              "am_echo",
+              "am_eric",
+              "am_fenrir",
+              "am_liam",
+              "am_michael",
+              "am_onyx",
+              "am_puck",
+              "am_santa",
+              "bf_alice",
+              "bf_emma",
+              "bf_isabella",
+              "bf_lily",
+              "bm_daniel",
+              "bm_fable",
+              "bm_george",
+              "bm_lewis"
+            ],
+            "enumDescriptions": [
+              "American English, female",
+              "American English, female",
+              "American English, female",
+              "American English, female",
+              "American English, female",
+              "American English, female",
+              "American English, female",
+              "American English, female",
+              "American English, female",
+              "American English, female",
+              "American English, female",
+              "American English, male",
+              "American English, male",
+              "American English, male",
+              "American English, male",
+              "American English, male",
+              "American English, male",
+              "American English, male",
+              "American English, male",
+              "American English, male",
+              "British English, female",
+              "British English, female",
+              "British English, female",
+              "British English, female",
+              "British English, male",
+              "British English, male",
+              "British English, male",
+              "British English, male"
+            ],
+            "default": "af_heart",
+            "markdownDescription": "Kokoro's voice. Use **Rawi: Choose Voice…** (with Kokoro as the main voice) to hear them.",
+            "order": 8
+          },
+          "rawi.kokoro.threads": {
+            "type": "number",
+            "default": 4,
+            "minimum": 1,
+            "maximum": 32,
+            "description": "CPU threads Kokoro uses. Fewer is often faster when other work keeps the CPU busy.",
+            "order": 9
+          },
+          "rawi.kokoro.folder": {
+            "type": "string",
+            "default": "",
+            "markdownDescription": "Folder holding `kokoro-v1.0.onnx` and `voices-v1.0.bin`. Empty: Read Aloud's copy in `~/.claude/kokoro` if there is one, else rawi's own download.",
+            "order": 10
+          }
+        }
+      }
+    ]
+  },
+  "scripts": {
+    "build": "node esbuild.mjs",
+    "watch": "node esbuild.mjs --watch",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "package": "npm run typecheck && npm run test && node esbuild.mjs --production && vsce package --no-dependencies --allow-missing-repository --target win32-x64"
+  },
+  "devDependencies": {
+    "@types/markdown-it": "^14.2.0",
+    "@types/node": "^20.19.43",
+    "@types/vscode": "1.90.0",
+    "@vscode/vsce": "^3.9.2",
+    "esbuild": "^0.24.2",
+    "typescript": "^5.9.3",
+    "vitest": "^2.1.9"
+  },
+  "dependencies": {
+    "markdown-it": "^14.3.3",
+    "onnxruntime-node": "1.21.0",
+    "phonemizer": "1.2.1"
+  }
+}

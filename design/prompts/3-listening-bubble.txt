@@ -1,0 +1,11 @@
+A square app icon for "rawi", a code-editor extension that reads an AI coding assistant's replies aloud, so you can listen instead of reading.
+
+Symbol: a friendly, rounded chat bubble wearing a pair of over-ear headphones. The bubble is white, with a short tail at its lower left and a small, simple sound wave of three rounded vertical bars inside it. The headphone band arches over the top of the bubble and the two ear cups sit on its left and right sides. Playful and charming, but simple and geometric.
+
+Colors: the bubble is white; the headphone band and cups are deep navy (#1E2A4A) with coral (#FF6F61) ear cushions; the sound bars inside the bubble are navy. The background is a fresh diagonal gradient from teal (#14C8B0) at the top left to sky blue (#3AA0FF) at the bottom right, with a soft highlight near the top.
+
+Background: it fills the entire square edge to edge with square corners: no rounded tile, no border, no frame, no outer drop shadow (the corners are rounded later). Keep the symbol inside the central 70% of the canvas, optically centered, with even margins.
+
+Quality: a premium, modern app icon of the kind featured on Dribbble: crisp vector shapes, bold and simple enough to stay recognizable at 16 by 16 pixels, with only subtle depth (soft gradients, a gentle highlight), no fine detail, no texture or noise.
+
+Never include: text, letters, numbers, logos, Arabic script, microphones, robots, faces.

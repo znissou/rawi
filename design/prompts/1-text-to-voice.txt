@@ -1,0 +1,11 @@
+A square app icon for "rawi", a code-editor extension that reads an AI coding assistant's replies aloud.
+
+Symbol: three horizontal, left-aligned lines of text drawn as thick white bars with rounded ends, stacked like a short paragraph. The top and bottom lines are plain bars of different lengths. The middle line starts as a straight bar and, past the middle of the icon, flows smoothly into a sound wave: a smooth sine wave whose height grows toward the right and ends in a rounded tip. The idea: written text turning into spoken sound. All strokes have the same thickness.
+
+Colors: the symbol is pure white with a very soft inner shade. The background is a rich diagonal gradient from hot pink (#FF4F8B) at the top left, through violet (#8A5CF6), to electric blue (#3B82F6) at the bottom right, with a gentle glossy highlight near the top.
+
+Background: it fills the entire square edge to edge with square corners: no rounded tile, no border, no frame, no outer drop shadow (the corners are rounded later). Keep the symbol inside the central 70% of the canvas, optically centered, with even margins.
+
+Quality: a premium, modern app icon of the kind featured on Dribbble: crisp vector shapes, bold and simple enough to stay recognizable at 16 by 16 pixels, with only subtle depth (soft gradients, a gentle highlight), no fine detail, no texture or noise.
+
+Never include: text, letters, numbers, logos, Arabic script, microphones, robots, faces.

@@ -1,0 +1,11 @@
+A square app icon for "rawi", a code-editor extension that reads an AI coding assistant's replies aloud.
+
+Symbol: a bold pair of rounded closing quotation marks, heavy and soft like two plump teardrops, placed slightly left of center. To their right, two concentric sound-wave arcs radiate outward, so the quotation itself is speaking. The arcs have rounded caps and are as thick as the quotation marks' tails.
+
+Colors: the quotation marks and the arcs share one vivid gradient from coral (#FF6A5C) at the top left to magenta (#D6338A) and deep violet (#7A2BD9) at the bottom right. The background is a warm off-white (#FFF8F1) with a very soft radial shade toward the edges (#F6E9E2).
+
+Background: it fills the entire square edge to edge with square corners: no rounded tile, no border, no frame, no outer drop shadow (the corners are rounded later). Keep the symbol inside the central 70% of the canvas, optically centered, with even margins.
+
+Quality: a premium, modern app icon of the kind featured on Dribbble: crisp vector shapes, bold and simple enough to stay recognizable at 16 by 16 pixels, with only subtle depth (soft gradients, a gentle highlight), no fine detail, no texture or noise.
+
+Never include: text, letters, numbers, logos, Arabic script, microphones, robots, faces.

@@ -1,0 +1,12 @@
+**
+!dist/extension.js
+!dist/kokoro-worker.js
+!dist/node_modules/**
+!media/icon.png
+!media/rawi.svg
+!media/win-player.ps1
+!package.json
+!README.md
+!CHANGELOG.md
+!LICENSE
+!THIRD-PARTY-NOTICES.md
